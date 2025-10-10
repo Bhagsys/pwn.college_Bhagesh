@@ -1,12 +1,12 @@
 #Perceiving Permissions
 
-## Using sudo
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+## Changing File ownership
+In this level, we will practice changing the owner of the /flag file to the hacker user, and then read the flag. For this challenge only, I made it so that you can use chown to your heart's content as the hacker user (again, typically, this requires you to be root).
 
 ### Solve
 **Flag:** `pwn.college{AN72FnNcYLSrz4xMwWwP8M8k66W.QXxEjN0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+chown using hacker as the user and run /flag to get the flag
 
 ```hacker@permissions~changing-file-ownership:~$ chown hacker /flag
 hacker@permissions~changing-file-ownership:~$ cat /flag
@@ -15,18 +15,18 @@ hacker@permissions~changing-file-ownership:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+Chown is used to change the ownership of a file to another user 
 
 
 
 
 ## Groups and Files
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+In this level, I have made the flag readable by whatever group owns it, but this group is currently root. Luckily, I have also made it possible for you to invoke chgrp as the hacker user! Change the group ownership of the flag file, and read the flag.
 
 ### Solve
 **Flag:** `pwn.college{IKoK5digDVLeTJBwwE-DNnHMcVc.QXxcjM1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+use chgrp to change the group to hacker then run flag file
 
 ```hacker@permissions~groups-and-files:~$ chgrp hacker /flag
 hacker@permissions~groups-and-files:~$ cat /flag
@@ -35,17 +35,17 @@ hacker@permissions~groups-and-files:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+group ownership can be changed with the chgrp command
 
 
 
 ## Fun with Groups Names
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
-
+ in this level, that is not going to work. I'll still allow you to use chgrp, but I have randomized the name of the group that your user is in. You will need to use the id command to figure that name out, then chgrp to victory.
+ 
 ### Solve
 **Flag:** `pwn.college{48PVTTZIYyL50fHAxlmvb2s9mS_.QXycjM1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+use id command to see all groups anf then use chgrp to run /flag 
 
 ```hacker@permissions~fun-with-groups-names:~$ chgrp grp11474 /flag
 hacker@permissions~fun-with-groups-names:~$ cat /flag
@@ -54,19 +54,19 @@ hacker@permissions~fun-with-groups-names:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+id command is used to display user and group information
 
 
 
 
 
 ## Changing Permissions
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+In this challenge, you must change the permissions of the /flag file to read it! Typically, you need to have write access to the file in order to change its permissions, but I have made the chmod command all-powerful for this level, and you can chmod anything you want even though you are the hacker user. This is an ultimate power. The /flag file is owned by root, and you can't change that, but you can make it readable.
 
 ### Solve
 **Flag:** `pwn.college{M88VPtrW_uXCpIqfxKsCghHcKFP.QXzcjM1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+use chmod to change permissions to get the flag
 
 ```hacker@permissions~changing-permissions:~$ chmod a-rwx /flag
 hacker@permissions~changing-permissions:~$ cat /flag
@@ -80,19 +80,20 @@ pwn.college{M88VPtrW_uXCpIqfxKsCghHcKFP.QXzcjM1wyM4kjNzEzW}
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
-
-
+r - user/group/other can read the file (or list the directory)
+w - user/group/other can modify the files (or create/delete files in the directory)
+x - user/group/other can execute the file as a program (or can enter the directory, e.g., using `cd`)
+- - nothing 
 
 
 
 ## Executable files
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+In this challenge, the /challenge/run program will give you the flag, but you must first make it executable! Remember your chmod, and get /challenge/run to tell you the flag!
 
 ### Solve
 **Flag:** `pwn.college{8lCnJQIySNOrZ78osoQYC-Khsxr.QXyEjN0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+set permissions to other permissions (o-x) 
 
 ```hacker@permissions~executable-files:~$ chmod o-x /challenge/run
 hacker@permissions~executable-files:~$ /challenge/run
@@ -102,18 +103,18 @@ hacker@permissions~executable-files:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+the file is owned by the root user and root group, this requires that the execute bit is set on the other permissions.
 
 
 
 
 ## Permission Tweaking Practices
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+This challenge will ask you to change the permissions of the /challenge/pwn file in specific ways a few times in a row. If you get the permissions wrong, the game will reset and you can try again. If you get the permissions right eight times in a row, the challenge will let you chmod /flag to make it readable for yourself :-) Launch /challenge/run to get started!
 
 ### Solve
 **Flag:** `pwn.college{MVmNELZjPZSlXR1sJkuXXxYI8cg.QXwEjN0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+complete using chmod according to the permissions required to get the flag  
 
 ```You've solved all 8 rounds! I have changed the ownership
 of the /flag file so that you can 'chmod' it. You won't be able to read
@@ -136,18 +137,18 @@ hacker@permissions~permission-tweaking-practice:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+
 
 
 
 
 ## Permission Setting Practices
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+This level extends the previous level by requesting more radical permission changes, which you will need = and ,-chaining to achieve. 
 
 ### Solve
 **Flag:** `pwn.college{wq7RJY84YDoa4DCgJ1DYBRCOxfM.QXzETO0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+similar approach using the question as refrence use chmod to get the flag
 
 ```hacker@permissions~permissions-setting-practice:~$ chmod u=x,g=-,o=rwx /challenge/pwn
 You set the correct permissions!
@@ -348,18 +349,22 @@ hacker@permissions~permissions-setting-practice:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
-
+u=rw sets read and write permissions for the user, and wipes the execute permission
+o=x sets only executable permissions for the world, wiping read and write
+a=rwx sets read, write, and executable permissions for the user, group,and world.
+chmod u=rw,g=r /challenge/pwn will set the user permissions to read and write, and the group permissions to read-only
+chmod a=r,u=rw /challenge/pwn will set the user permissions to read and write, and the group and world permissions to read-only
+chmod u=rw,g=r,o=- /challenge/pwn will set the user permissions to read and write, the group permissions to read-only, and the world permissions to nothing at all
 
 
 
 ## The SUID Bit
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+add the SUID bit to the /challenge/getroot program in order to spawn a root shell for you to cat the flag yourself
 
 ### Solve
 **Flag:** `pwn.college{Ec_YBjQye4jQXR7EFgnZ_MtmpFb.QXzEjN0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+use chmod u+s /challenge/getroot then run /challenge/getroot, cat to get the flag
 
 ```hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
 hacker@permissions~the-suid-bit:~$ cat /flag
@@ -374,4 +379,4 @@ root@permissions~the-suid-bit:~#
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+As the owner of a file, you can set a file's SUID bit by using chmod u+s [program]
