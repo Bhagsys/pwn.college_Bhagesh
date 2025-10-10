@@ -6,7 +6,7 @@ In this level, you must run /challenge/pwn and then /challenge/college, chaining
 ### Solve
 **Flag:** `pwn.college{cPN5YW43IHwhUXq1A9U6H1UAcKD.QX1UDO0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+run /challenge/run and /challenge/college wth a semicolon in between it
 
 ```hacker@chaining~chaining-with-semicolons:~$ /challenge/pwn; /challenge/college
 Yes! You chained /challenge/pwn and /challenge/college! Here is your flag:
@@ -15,8 +15,7 @@ hacker@chaining~chaining-with-semicolons:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
-
+commands can be chained using semicolons
 
 
 
@@ -26,7 +25,7 @@ In this challenge, you need to chain the programs /challenge/first-success and /
 ### Solve
 **Flag:** `pwn.college{YSN4iXipJ4z1HlMOpoN5s8OQHlj.0lM0MDOxwyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+chained the two commands but this time using && instead of ; 
 
 ```hacker@chaining~building-on-success:~$ /challenge/first-success && /challenge/second
 Nice chaining! Flag: pwn.college{YSN4iXipJ4z1HlMOpoN5s8OQHlj.0lM0MDOxwyM4kjNzEzW}
@@ -34,8 +33,7 @@ hacker@chaining~building-on-success:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
-
+&& can also be used to chain comands
 
 
 
@@ -45,7 +43,7 @@ In this challenge, you need to chain /challenge/first-failure and /challenge/sec
 ### Solve
 **Flag:** `pwn.college{QRDjfmABsRlsS25cnt0X45dUIYL.01M0MDOxwyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+run two commands with || in between them 
 
 ```hacker@chaining~handling-failure:~$ /challenge/first-failure || /challenge/second
 Nice chaining! Flag: pwn.college{QRDjfmABsRlsS25cnt0X45dUIYL.01M0MDOxwyM4kjNzEzW}
@@ -53,7 +51,7 @@ hacker@chaining~handling-failure:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+|| means or where one of the two programs which are successful would run
 
 
 
@@ -64,7 +62,7 @@ Su is used to switch user, usually used to switch to the root user
 ### Solve
 **Flag:** `pwn.college{cfuX1KzU4PpChy0My5gZZM3u7Oi.QXxcDO0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+into a text editor write the contents of x.sh then in the terminal bash it 
 
 ```hacker@chaining~your-first-shell-script:~$ bash x.sh
 Great job, you've written your first shell script! Here is the flag:
@@ -73,8 +71,7 @@ hacker@chaining~your-first-shell-script:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
-
+x.sh is called a shell script where instead of taking commands from a user it takes them from a file
 
 
 
@@ -84,7 +81,7 @@ In this level, we will practice piping (|) from your script to another program. 
 ### Solve
 **Flag:** `pwn.college{g2a9oLjaZZN5kXZdf3T2afLq8ou.QX4ETO0wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+bash run_challenges.sh and pipe it to /challenges/solve
 
 ```hacker@chaining~redirecting-script-output:~$ bash run_challenges.sh | /challenge/solve
 Correct! Here is your flag:
@@ -93,7 +90,7 @@ hacker@chaining~redirecting-script-output:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+you can pipe the output from a shell script to another program
 
 
 
@@ -103,9 +100,9 @@ Make a shellscript that will invoke /challenge/solve, make it executable, and ru
 ### Solve
 **Flag:** `pwn.college{02y4qC7YdtTrSRPnKjAZ7mUcfJN.QX0cjM1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+use chmod on run_solve.sh 
 
-```hacker@chaining~executable-shell-scripts:~$ chmod +x run_solve.sh
+```hacker@chaining~executable-shell-scripts:~$ chmod +x run_solve.sh to make it executable then envoke it using ./(script).sh
 hacker@chaining~executable-shell-scripts:~$ ./run_solve.sh
 Congratulations on your shell script execution! Your flag:
 pwn.college{02y4qC7YdtTrSRPnKjAZ7mUcfJN.QX0cjM1wyM4kjNzEzW}
@@ -113,7 +110,7 @@ hacker@chaining~executable-shell-scripts:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+you can invoke it via /home/hacker/script.sh or ~/script.sh or (if your working directory is /home/hacker) ./script.sh.
 
 
 
@@ -124,7 +121,7 @@ For this challenge, create a script at /home/hacker/solve.sh that has a proper s
 ### Solve
 **Flag:** `pwn.college{k6IjLa7EGNwRaRZ5FSyUnNjYv5i.0VOzMDOxwyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+write #!/bin/bash as first line to /home/hacker/solve.sh script and echo "hack the planet" as the second line make the script executable and then execute /challenge/run
 
 ```hacker@chaining~understanding-shebangs:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
 hacker@chaining~understanding-shebangs:~$ echo 'echo "hack the planet"' >> /home/hacker/solve.sh
@@ -150,7 +147,7 @@ Outputs them in REVERSE order (second argument first, then the first argument)
 ### Solve
 **Flag:** `pwn.college{csjlvtld08DU_yYDh2g6bO1Hk8-.0VNzMDOxwyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+write echo "$2 $1" to /home/hacker/solve.sh script and make it executable , then bash the script and enter 2 arguments the output should be reversed 
 
 ```hacker@chaining~scripting-with-arguments:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
 hacker@chaining~scripting-with-arguments:~$ echo 'echo "$2 $1"' >> /home/hacker/solve.sh
@@ -179,23 +176,24 @@ For any other input, output nothing
 ### Solve
 **Flag:** `pwn.college{csjlvtld08DU_yYDh2g6bO1Hk8-.0VNzMDOxwyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+writing #!/bin/bash   to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and /challenge/run
+if [ "$1" == "pwn" ]
+then
+    echo "college"
+fi         
 
-```hacker@chaining~scripting-with-arguments:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
-hacker@chaining~scripting-with-arguments:~$ echo 'echo "$2 $1"' >> /home/hacker/solve.sh
-hacker@chaining~scripting-with-arguments:~$ chmod +x /home/hacker/solve.sh
-hacker@chaining~scripting-with-arguments:~$ bash /home/hacker/solve.sh pwn college
-college pwn
-hacker@chaining~scripting-with-arguments:~$ 
-hacker@chaining~scripting-with-arguments:~$ /challenge/run
-Correct! Your script properly reversed the arguments.
+```hacker@chaining~scripting-with-conditionals:~$ chmod +x /home/hacker/solve.sh
+hacker@chaining~scripting-with-conditionals:~$ /home/hacker/solve.sh pwn
+college
+hacker@chaining~scripting-with-conditionals:~$ /challenge/run
+Correct! Your script properly handles all the conditions.
 Here's your flag:
-pwn.college{csjlvtld08DU_yYDh2g6bO1Hk8-.0VNzMDOxwyM4kjNzEzW}
-hacker@chaining~scripting-with-arguments:~$ 
+pwn.college{Ywq0u34Xuw6f0-1nxuUrdBbUz__.0lNzMDOxwyM4kjNzEzW}
+hacker@chaining~scripting-with-conditionals:~$ 
 ```
 
 ### New Learnings
-$1 - first argument $2- second argument and so on.
+we can input conditional statements into shell scripts
 
 
 
