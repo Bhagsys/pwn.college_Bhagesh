@@ -66,6 +66,27 @@ Your line-split flag: pwn.college{cwgcnNHIbZyFoeVk5HhHsBUfN6K.0VNxEzNxwyM4kjNzEz
 This challenge's /challenge/pwn outputs a bunch of data, and you'll need to pipe it through head to grab just the first 7 lines and then pipe them onwards to /challenge/college, which will give you the flag
 
 ### Solve
+**Flag:** `pwn.college{47HzndO7CVkaFJQDEpDYuGQ9NXI.0lNxEzNxwyM4kjNzEzW}`
+
+Go to the challenge/run directory and use cut-d and feed it to another pipeline with tr -d '\n'
+
+```hacker@data~extracting-the-first-lines-with-head:~$ /challenge/pwn | head -n 7 | /challenge/college
+Congratulations, you piped the right codes!
+pwn.college{47HzndO7CVkaFJQDEpDYuGQ9NXI.0lNxEzNxwyM4kjNzEzW}
+hacker@data~extracting-the-first-lines-with-head:~$ 
+```
+
+### New Learnings
+The head command is used to display the first few lines of its input
+
+### References
+
+
+
+## Extracting specific sections of text
+In this challenge, the /challenge/run program will give you a bunch of lines with random numbers and single characters (characters of the flag) as columns. Use cut to extract the flag characters, then pipe them to tr -d "\n" (like the previous level!) to join them together into a single line. Your solution will look something like /challenge/run | cut ??? | tr ???, with the ??? filled out.
+
+### Solve
 **Flag:** `pwn.college{M7L1ujK-NnWZvUkvwonbYZ75P7P.01NxEzNxwyM4kjNzEzW}`
 
 Go to the challenge/run directory and use cut-d and feed it to another pipeline with tr -d '\n'
