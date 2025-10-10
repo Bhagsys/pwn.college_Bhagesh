@@ -214,7 +214,8 @@ else
     echo "nope"
 fi                 to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and hack as the prompts and execute /challenge/run
 
-```hacker@chaining~scripting-with-default-cases:~$ chmod +x /home/hacker/solve.sh
+```
+hacker@chaining~scripting-with-default-cases:~$ chmod +x /home/hacker/solve.sh
 hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh pwn
 college
 hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh hack
@@ -224,7 +225,6 @@ Correct! Your script properly handles the if/else conditions.
 Here's your flag:
 pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}
 hacker@chaining~scripting-with-default-cases:~$ 
-
 ```
 
 ### New Learnings
@@ -239,27 +239,69 @@ If the argument is "learn", output "linux"
 For any other input, output "unknown"
 
 ### Solve
-**Flag:** `pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}`
+**Flag:** `pwn.college{kPwF_G7DEHBd1g3Gzsw9ZBR2Z-Q.0FOzMDOxwyM4kjNzEzW}`
 
 writing#!/bin/bash
-if [ "$1" == "pwn" ]
+#!/bin/bash
+if [ "$1" == "hack" ]
+then
+    echo "the planet"
+elif [ "$1" == "pwn" ]
 then
     echo "college"
+elif [ "$1" == "learn" ]
+then
+    echo "linux"
 else
-    echo "nope"
-fi                   to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and hack as the prompts and execute /challenge/run
+    echo "unknown"
+fi                       to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and hack as the prompts and execute /challenge/run
 
-```hacker@chaining~scripting-with-default-cases:~$ chmod +x /home/hacker/solve.sh
-hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh pwn
-college
-hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh hack
-nope
-hacker@chaining~scripting-with-default-cases:~$ /challenge/run
-Correct! Your script properly handles the if/else conditions.
+```
+hacker@chaining~scripting-with-multiple-conditions:~$ chmod +x /home/hacker/solve.sh
+hacker@chaining~scripting-with-multiple-conditions:~$ /home/hacker/solve.sh hack
+the planet
+hacker@chaining~scripting-with-multiple-conditions:~$ /challenge/run
+Correct! Your script properly handles all the conditions with elif.
 Here's your flag:
-pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}
-hacker@chaining~scripting-with-default-cases:~$ 
+pwn.college{kPwF_G7DEHBd1g3Gzsw9ZBR2Z-Q.0FOzMDOxwyM4kjNzEzW}
+hacker@chaining~scripting-with-multiple-conditions:~$ 
+```
 
+### New Learnings
+
+
+
+
+## Reading shell scripts
+For this challenge, write a script at /home/hacker/solve.sh that:
+Takes one argument
+If the argument is "hack", output "the planet"
+If the argument is "pwn", output "college"
+If the argument is "learn", output "linux"
+For any other input, output "unknown"
+
+### Solve
+**Flag:** `pwn.college{cPJBkzWXlOHsG70h8o8_kjbXLIH.0lMwgDOxwyM4kjNzEzW}`
+
+cat /challenge run to get its content then run it again and enter the password 'hack the PLANET' to then get the flag
+
+```
+hacker@chaining~reading-shell-scripts:~$ cat /challenge/run
+#!/opt/pwn.college/bash
+
+read GUESS
+if [ "$GUESS" == "hack the PLANET" ]
+then
+        echo "CORRECT! Your flag:"
+        cat /flag
+else
+        echo "Read the /challenge/run file to figure out the correct password!"
+fi
+hacker@chaining~reading-shell-scripts:~$ /challenge/run
+hack the PLANET
+CORRECT! Your flag:
+pwn.college{cPJBkzWXlOHsG70h8o8_kjbXLIH.0lMwgDOxwyM4kjNzEzW}
+hacker@chaining~reading-shell-scripts:~$ 
 ```
 
 ### New Learnings
