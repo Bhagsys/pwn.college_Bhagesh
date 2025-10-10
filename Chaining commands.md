@@ -167,20 +167,20 @@ $1 - first argument $2- second argument and so on.
 
 
 
-## Scripting with Conditionals
+## Scripting with default cases
 For this challenge, write a script at /home/hacker/solve.sh that:
 Takes one argument
 If the argument is "pwn", output "college"
 For any other input, output nothing
 
 ### Solve
-**Flag:** `pwn.college{csjlvtld08DU_yYDh2g6bO1Hk8-.0VNzMDOxwyM4kjNzEzW}`
+**Flag:** `pwn.college{Ywq0u34Xuw6f0-1nxuUrdBbUz__.0lNzMDOxwyM4kjNzEzW}`
 
-writing #!/bin/bash   to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and /challenge/run
+writing #!/bin/bash   
 if [ "$1" == "pwn" ]
 then
     echo "college"
-fi         
+fi                   to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and /challenge/run
 
 ```hacker@chaining~scripting-with-conditionals:~$ chmod +x /home/hacker/solve.sh
 hacker@chaining~scripting-with-conditionals:~$ /home/hacker/solve.sh pwn
@@ -197,7 +197,69 @@ we can input conditional statements into shell scripts
 
 
 
+## Scripting with Conditionals
+For this challenge, write a script at /home/hacker/solve.sh that:
+Takes one argument
+If the argument is "pwn", output "college"
+For any other input, output nope
+
+### Solve
+**Flag:** `pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}`
+
+writing #!/bin/bash
+if [ "$1" == "pwn" ]
+then
+    echo "college"
+else
+    echo "nope"
+fi                 to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and hack as the prompts and execute /challenge/run
+
+```hacker@chaining~scripting-with-default-cases:~$ chmod +x /home/hacker/solve.sh
+hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh pwn
+college
+hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh hack
+nope
+hacker@chaining~scripting-with-default-cases:~$ /challenge/run
+Correct! Your script properly handles the if/else conditions.
+Here's your flag:
+pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}
+hacker@chaining~scripting-with-default-cases:~$ 
+
+```
+
+### New Learnings
 
 
+## Scripting with multiple Conditions
+For this challenge, write a script at /home/hacker/solve.sh that:
+Takes one argument
+If the argument is "hack", output "the planet"
+If the argument is "pwn", output "college"
+If the argument is "learn", output "linux"
+For any other input, output "unknown"
 
+### Solve
+**Flag:** `pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}`
 
+writing#!/bin/bash
+if [ "$1" == "pwn" ]
+then
+    echo "college"
+else
+    echo "nope"
+fi                   to /home/hacker/solve.sh ,making it executable and then bashing the command with pwn and hack as the prompts and execute /challenge/run
+
+```hacker@chaining~scripting-with-default-cases:~$ chmod +x /home/hacker/solve.sh
+hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh pwn
+college
+hacker@chaining~scripting-with-default-cases:~$ /home/hacker/solve.sh hack
+nope
+hacker@chaining~scripting-with-default-cases:~$ /challenge/run
+Correct! Your script properly handles the if/else conditions.
+Here's your flag:
+pwn.college{oqRGNz7L8qJ6kqX4Cto5e5mcuLD.01NzMDOxwyM4kjNzEzW}
+hacker@chaining~scripting-with-default-cases:~$ 
+
+```
+
+### New Learnings
