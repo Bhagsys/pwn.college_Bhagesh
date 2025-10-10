@@ -22,7 +22,7 @@ Su is used to switch user, usually used to switch to the root user
 
 
 
-## Cracking Passwords
+## Other users with su
 In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
 
 ### Solve
@@ -44,13 +44,13 @@ Su is used to switch user, usually used to switch to the root user
 
 
 
-## Other users with su
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+## Cracking passwords
+This level simulates this story, giving you a leak of /etc/shadow (in /challenge/shadow-leak). Crack it (this could take a few minutes), su to zardus, and run /challenge/run to get the flag
 
 ### Solve
 **Flag:** `pwn.college{8pV3rYNpSYIjX4rP0O76JJs-fCI.QX3UDN1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+using john as the user go to /challenge/shadow-leak optain zardus's password then using su loginto zardus's account and run challenge to get flag 
 
 ```hacker@users~cracking-passwords:~$ john /challenge/shadow-leak
 Loaded 1 password hash (crypt, generic crypt(3) [?/64])
@@ -73,17 +73,17 @@ zardus@users~cracking-passwords:/home/hacker$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+If a hacker gets their hands on a leaked /etc/shadow, they can start cracking passwords
 
 
 
 ## Using sudo
-In this level, you must switch to the zardus user and then run /challenge/run. Zardus' password is dont-hack-me.
+In this level, we will give you sudo access, and you will use it to read the flag. Nice and easy.
 
 ### Solve
 **Flag:** `pwn.college{Ibo8WyoNSNWajiV2ve8wDNRHs-a.QX4UDN1wyM4kjNzEzW}`
 
-Su to Zardus then enter password and run /challenge/run 
+sudo cat the flag file 
 
 ```hacker@users~using-sudo:~$ sudo cat /flag
 pwn.college{Ibo8WyoNSNWajiV2ve8wDNRHs-a.QX4UDN1wyM4kjNzEzW}
@@ -91,4 +91,4 @@ hacker@users~using-sudo:~$
 ```
 
 ### New Learnings
-Su is used to switch user, usually used to switch to the root user
+sudo checks policies to determine whether the user is authorized to run commands as root.
